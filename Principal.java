@@ -2,7 +2,7 @@ public class Principal {
 
     //Subgrupo 9
     //Miguel Alejandro Rojas Perez
-    //Nombre estudiante 2
+    //Daniel felipe rincon 
     //Nombre 1
 
     public static void main(String[] args) {
