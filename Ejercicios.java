@@ -22,6 +22,7 @@ public class Ejercicios {
             System.out.println("NO esta el numero 6");
         }
         //Prueba branch MR
+        //Otra prueba
                 
     }
 
