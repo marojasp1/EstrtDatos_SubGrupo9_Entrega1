@@ -8,8 +8,8 @@ public class Principal {
     public static void main(String[] args) {
         Ejercicios ej = new Ejercicios();
         ej.ejercicio1();
-        ej.ejercicio2();
-        ej.ejercicio3();
+        //ej.ejercicio2();
+        //ej.ejercicio3();
         
     }
 
