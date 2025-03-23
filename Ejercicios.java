@@ -40,28 +40,28 @@ public class Ejercicios {
         }
         System.out.println("El tamanio de la lista B es: " + ListaB.size());
 
-
-
-        ArrayList<Integer> ElementosComunes = EncontrarEComunes(ListaA, ListaB);
+        List<Integer> ElementosComunes = EncontrarEComunes(ListaA, ListaB);
 
         System.out.println("Los elementos en comun son:" + ElementosComunes);
          
     }
-                
-}
-
-private ArrayList<Integer> EncontrarEComunes (ArrayList<Integer>ListaA, ArrayList<Integer>ListaB){
-    ArrayList<Integer> Comunes = new ArrayList<>();
-    for (Integer num: ListaA) {
-    if (ListaB.contains(num)){
-        Comunes.add(num);
+    public static List<Integer> EncontrarEComunes (ArrayList<Integer>ListaA, ArrayList<Integer>ListaB){
+        ArrayList<Integer> Comunes = new ArrayList<>();
+        for (Integer num: ListaA) {
+            if (ListaB.contains(num)){
+                Comunes.add(num);
+                System.out.println("Los elementos en comun son" + Comunes);
+            }
+                //else{
+                    //System.out.println("No hay elementos en comun");
+                //3}   
+        }
+    
+    return Comunes;
+            
     }
-    else{
-        System.out.println("No hay elementos en comun");
-    }
-}
 
-return Comunes;     
+     
  
 }
 
@@ -73,7 +73,7 @@ return Comunes;
       
                 
     
-
+/* 
   
 
     public void ejercicio2(){
@@ -108,6 +108,7 @@ return Comunes;
         }
     }
 
+*/
   
 
 
