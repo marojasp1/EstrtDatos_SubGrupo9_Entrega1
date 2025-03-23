@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -12,48 +13,69 @@ public class Ejercicios {
 
         //int TamanioLista1 , ElementosLista1;
 
-        Scanner EntradaLista1 = new Scanner(System.in);
-        System.out.print("Ingrese el tamanio de la lista 1: ");
-        
-        int TamanioLista1 = EntradaLista1.nextInt();
+        Scanner EntradaLista = new Scanner(System.in);
+        System.out.print("Ingrese el tamanio de la lista A: ");     
+        int TamanioListaA = EntradaLista.nextInt();
 
-        ArrayList<Integer> Lista1 = new ArrayList<>(TamanioLista1);
-        System.out.println("A continuacion ingrese los elementos para la lista 1");
+        System.out.print("Ingrese el tamanio de la lista B: ");
+        int TamanioListaB = EntradaLista.nextInt();
 
-        for (int i = 0; i < TamanioLista1; i++){
+        ArrayList<Integer> ListaA = new ArrayList<>(TamanioListaA);
+        System.out.println("A continuacion ingrese los elementos para la lista A");
+
+        for (int i = 0; i < TamanioListaA; i++){
             System.out.print("Elemento N." + (i + 1) + ": ");
-            int ElementoLista1 = EntradaLista1.nextInt();
-            Lista1.add(ElementoLista1);
+            int ElementoListaA = EntradaLista.nextInt();
+            ListaA.add(ElementoListaA);
         }
-        System.out.println("El tamanio de la lista 1 es: " + Lista1.size());
+        System.out.println("El tamanio de la lista A es: " + ListaA.size());
 
+        ArrayList<Integer> ListaB = new ArrayList<>(TamanioListaB);
+        System.out.println("A continuacion ingrese los elementos para la lista B");
+
+        for (int i=0; i < TamanioListaB; i++){
+            System.out.print("Elemento N." + (i + 1) + ": ");
+            int ElementoListaB = EntradaLista.nextInt();
+            ListaB.add(ElementoListaB);
+        }
+        System.out.println("El tamanio de la lista B es: " + ListaB.size());
+
+
+
+        ArrayList<Integer> ElementosComunes = EncontrarEComunes(ListaA, ListaB);
+
+        System.out.println("Los elementos en comun son:" + ElementosComunes);
+         
     }
+                
+}
 
+private ArrayList<Integer> EncontrarEComunes (ArrayList<Integer>ListaA, ArrayList<Integer>ListaB){
+    ArrayList<Integer> Comunes = new ArrayList<>();
+    for (Integer num: ListaA) {
+    if (ListaB.contains(num)){
+        Comunes.add(num);
+    }
+    else{
+        System.out.println("No hay elementos en comun");
+    }
+}
+
+return Comunes;     
+ 
 }
 
 
 
 
-    /*    
-        lista.add(3);
-        lista.add(4);
-        for (int i=0 ; i<3 ; i++){
-            lista.add(i * 2); //Agrego tres elementos mas a la lista
-        }
-        if(lista.contains(6)){
-            System.out.println("La lista contiene el numero 6");
-        }
-        else{
-            System.out.println("NO esta el numero 6");
-        }
-    */
+
         
       
                 
     
 
   
-/* 
+
     public void ejercicio2(){
         
         //Metodo que realiza el segundo ejercicio por medio de..
@@ -86,7 +108,7 @@ public class Ejercicios {
         }
     }
 
-*/    
+  
 
 
 
