@@ -18,7 +18,7 @@ public class Ejercicios {
         System.out.print("Ingrese el tamanio de la lista B: ");//Se pide ingresar el tamano de la listaB usando teclado
         int TamanioListaB = EntradaLista.nextInt();
 
-        ArrayList<Integer> ListaA = new ArrayList<>(TamanioListaA);
+        ArrayList<Integer> ListaA = new ArrayList<>(TamanioListaA);//Funcion de inicia la ListaA de acuerdo al tamano a ingresar usando el teclado
         System.out.println("A continuacion ingrese los elementos para la lista A");
 
         for (int i = 0; i < TamanioListaA; i++){//Este bucle solicita el ingreso de los elementos de la listaA y numera sus posiciones
@@ -28,7 +28,7 @@ public class Ejercicios {
         }
         System.out.println("El tamanio de la lista A es: " + ListaA.size());//Aqui se devuelve el tamano anteriormente ingresado de la ListaA
 
-        ArrayList<Integer> ListaB = new ArrayList<>(TamanioListaB);
+        ArrayList<Integer> ListaB = new ArrayList<>(TamanioListaB);//Funcion de inicia la ListaB de acuerdo al tamano a ingresar usando el teclado
         System.out.println("A continuacion ingrese los elementos para la lista B");
 
         for (int i=0; i < TamanioListaB; i++){//Este bucle solicita el ingreso de los elementos de la listaB y numera sus posiciones
@@ -64,17 +64,17 @@ public class Ejercicios {
     //EJERCICIO 2
 
     public void ejercicio2(){
-        ArrayList<Integer> Lista2 = new ArrayList<Integer>();
+        ArrayList<Integer> Lista2 = new ArrayList<Integer>();//Funcion que inicia la Lista2
 
         Scanner EntradaElementos = new Scanner(System.in);
 
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 10; i++){//Este bucle solicita el ingreso de los 10 elementos, numerando las posiciones desde el 1 hasta el 10
             System.out.print("Ingrese el elemento N." + (i + 1) + ": ");
             int ElementoLista = EntradaElementos.nextInt();
-            Lista2.add(ElementoLista);
+            Lista2.add(ElementoLista);//Los elementos capturados se almacenan el la Lista2 a traves de esta funcion
         }
 
-        Integer SegundoNum = EncontrarSegundoNum(Lista2);
+        Integer SegundoNum = EncontrarSegundoNum(Lista2);//Esta funcion llama el metodo EncontrarSegundoNum que se encarga de almacenar temporalmente el segundo numero mas grande
 
         if (SegundoNum != null){
             System.out.println("El segundo numero mas grande es:" + SegundoNum);
@@ -85,7 +85,7 @@ public class Ejercicios {
 
     }
 
-    public static Integer EncontrarSegundoNum(List<Integer>Lista2){
+    public static Integer EncontrarSegundoNum(List<Integer>Lista2){//Este metodo crea una lista alterna para buscar y almacenar el segundo numero mas grande
         List<Integer> RevisarLista = new ArrayList<>(Lista2);
         Collections.sort(RevisarLista, Collections.reverseOrder());
         
@@ -93,56 +93,69 @@ public class Ejercicios {
 
 
     }
-     
- 
-}
 
-
-
-
-
-        
-      
-                
-    
-/* 
-  
-
-    public void ejercicio2(){
-        
-        //Metodo que realiza el segundo ejercicio por medio de..
-        //
-        //
-
-        ArrayList<String> luchito = new ArrayList<String>();
-        luchito.add("Golazo!");
-        luchito.add("del");
-        luchito.add("Lucho");
-        luchito.add("Brasil sucks!");
-        System.out.println("El string que esta en la posicion 3 es:" + luchito.get(3));
-        imprimirListaString(luchito);        
-    }
-
-    //Metodo que realiza el tercer ejercicio por medio de..
-    //
-    //
+    //EJERCICIO3
 
     public void ejercicio3(){
-               
-    }
 
-    public void imprimirListaString (ArrayList<String> lista){
-        System.out.println("tamanio de la lista"+lista.size());
-        int i;
-        for (i = 0; i < lista.size() ; i++){
-            System.out.println("Elemento:"+lista.get(i));
-            System.out.println("Tamanio del String"+lista.get(i).length());
+        Scanner IngresoTeclado = new Scanner(System.in);
+
+        System.out.print("Ingrese el tamanio del Listado: ");//Se pide ingresar el tamano del Listado de palabras usando teclado     
+        int TamanioListado = IngresoTeclado.nextInt();
+        IngresoTeclado.nextLine();
+
+        ArrayList<String> ListaPalabras = new ArrayList<String>(TamanioListado);
+         
+        System.out.println("A continuacion ingrese la lista de palabras");//Funcion de inicia la solicitud del listado usando el teclado
+    
+        for (int i = 0; i < TamanioListado; i++){//Este bucle solicita el ingreso de los elementos del Listado y numera sus posiciones
+            System.out.print("Palabra N." + (i + 1) + ": ");
+            String Palabra = IngresoTeclado.nextLine();
+            ListaPalabras.add(Palabra);//Las palabras ingresadas se almacenan el la Lista de palabras a traves de esta funcion
         }
+        
+        PalabraMasLarga(ListaPalabras);
+        EncontrarPosicion(ListaPalabras, ListaPalabras);
+
+        List <String> PalabraMasLarga = PalabraMasLarga(ListaPalabras);
+        List <Integer> Lugar = EncontrarPosicion(ListaPalabras, PalabraMasLarga);
+        System.out.println("La palabra mas larga es:" + (PalabraMasLarga) + " y esta en la posicion N.: " + (Lugar));
+                
+
     }
 
-*/
+    public List<String> PalabraMasLarga(ArrayList<String> PalabraLarga){//Este metodo se encarga de encontrar la posicion donde la palabra mas larga se aloja
+
+        int PosicionEncontrada;
+        int PalabraMasLarga = 0;//Se inicia desde la primera posicion
+
+        for (String str : PalabraLarga){
+            PalabraMasLarga = Math.max(PalabraMasLarga, str.length());//Math se encarga de comparar el tamaño de las palabras
+        }
+
+        List<String> CadenaMasLarga = new ArrayList<>();
+        for (String str : PalabraLarga) {//Aqui se recorre el contenido de la variable PalabraLarga en la variable str para determinar la palabra mas larga de la lista
+            if (str.length() == PalabraMasLarga) {
+                CadenaMasLarga.add(str);
+            }
+        }
+
+        return CadenaMasLarga;//Resultado de la palabra mas larga
   
+    }
 
+    public static List<Integer> EncontrarPosicion (List<String> PalabraLarga, List<String> CadenaMasLarga){//Aqui se crea una lista alterna para encontrar la posicion de la palabra mas larga
+        List<Integer> Lugar = new ArrayList<>();
+            if (PalabraLarga != null && CadenaMasLarga != null ){
+                for (String CadenaMLarga : CadenaMasLarga){
+                    for (int i = 0; i < PalabraLarga.size(); i++ ){
+                        if (CadenaMLarga.equals(PalabraLarga.get(i))){
+                            Lugar.add(i);
+                        }
+                    }
+                }
+            }
 
-
-
+            return Lugar;
+    }    
+}
