@@ -3,7 +3,7 @@ public class Principal {
     //Subgrupo 9
     //Miguel Alejandro Rojas Perez
     //Daniel felipe rincon labrador
-    //Nombre 1
+    //Sebastian Valencia Sierra
 
     public static void main(String[] args) {
         Ejercicios ej = new Ejercicios();
